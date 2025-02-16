@@ -1,26 +1,27 @@
 export const playersTemplate = [
   {
     name: "Fred",
-    color: "#f00",
+    color: "#ff0000",
   },
   {
     name: "Greenlee",
-    color: "#0f0",
+    color: "#00ff00",
   },
   {
     name: "Pinkney",
-    color: "#f0f",
+    color: "#ff00ff",
   },
   {
     name: "Bluebell",
-    color: "#0ff",
+    color: "#00ffff",
   },
   {
     name: "Willem",
-    color: "#f50",
+    color: "#ff5500",
   },
   {
     name: "Greydon",
-    color: "#555",
+    color: "#555555",
+    // color: "#222222", // Test dark color
   },
 ];
