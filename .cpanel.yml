@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/wat3873d/achtung.watorek.eu
+    - /bin/cp -R * $DEPLOYPATH
