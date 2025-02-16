@@ -1,4 +1,5 @@
 import { playersTemplate } from "../data/players.js";
+import ensureVisibleColor from "./scripts/adjustColor.js";
 
 const playersContainer = document.getElementById("playersContainer");
 
@@ -6,14 +7,26 @@ playersTemplate.forEach((player, i) => {
   const playerDiv = document.createElement("div");
   playerDiv.className = "player";
 
-  const span = document.createElement("input");
-  span.style.color = player.color ?? "#ffffff";
-  span.value = `${i + 1}`;
-  playerDiv.appendChild(span);
+  const idInput = document.createElement("input");
+  idInput.type = "text";
+  idInput.style.color = player.color ?? "#ffffff";
+  idInput.value = `${i + 1}`;
+  idInput.maxLength = 2;
+  idInput.addEventListener("input", (event) => {
+    const value = event.target.value;
+    event.target.value = value.replace(/\D/g, ""); // Remove non-digit characters
+  });
+  playerDiv.appendChild(idInput);
 
   const colorPicker = document.createElement("input");
   colorPicker.type = "color";
   colorPicker.value = player.color ?? "#ffffff";
+  colorPicker.onblur = () => {
+    console.log(ensureVisibleColor(colorPicker.value));
+
+    colorPicker.value = ensureVisibleColor(colorPicker.value);
+    colorPicker.oninput();
+  };
 
   playerDiv.appendChild(colorPicker);
 
@@ -44,7 +57,7 @@ playersTemplate.forEach((player, i) => {
   playerDiv.appendChild(rightKeySpan);
 
   colorPicker.oninput = () => {
-    span.style.color = colorPicker.value;
+    idInput.style.color = colorPicker.value;
     inputName.style.color = colorPicker.value;
     inputCheckbox.style.color = colorPicker.value;
     leftKeySpan.style.color = colorPicker.value;
@@ -53,7 +66,7 @@ playersTemplate.forEach((player, i) => {
 
   colorPicker.ondblclick = () => {
     colorPicker.value = player.color;
-    span.style.color = colorPicker.value;
+    idInput.style.color = colorPicker.value;
     inputName.style.color = colorPicker.value;
     inputCheckbox.style.color = colorPicker.value;
     leftKeySpan.style.color = colorPicker.value;

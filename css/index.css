@@ -1,1 +1,21 @@
 @import "./reset.css";
+* {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  background: #000;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1em;
+  padding-top: 1em;
+}

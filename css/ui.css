@@ -1,0 +1,147 @@
+h2 {
+  font-size: 2em;
+  margin: 0.3em 0;
+  color: #ffff00;
+  user-select: none;
+}
+span,
+input {
+  margin: 0 10px;
+  padding: 10px;
+  font-size: 1.3em;
+  border-radius: 0.6em;
+  /* border: 2px solid #fff; */
+}
+
+span {
+  user-select: none;
+}
+input[type="text"] {
+  background: transparent;
+  border: none;
+  width: 15ch;
+}
+
+input[type="text"]:first-child {
+  width: 3ch;
+}
+
+input[type="text"]::selection {
+  background: #fff;
+}
+
+input[type="checkbox"] {
+  width: 1em;
+  height: 1em;
+  accent-color: #242424;
+  border: none;
+  outline: none; /* Change this to your desired color */
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5%;
+  background: none;
+  cursor: pointer;
+  /* overflow: hidden; */
+  width: 20px;
+  height: 20px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  /* width: 20px; */
+  height: 15px;
+
+  border-radius: 15px;
+  border: none;
+}
+input[type="color"]::-moz-color-swatch {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 15px;
+  border: none;
+}
+
+.player span:not(:first-child),
+.heading span:not(:first-child, :nth-child(3)) {
+  width: 14ch;
+  text-align: center;
+}
+.heading span:nth-child(2) {
+  width: 15ch;
+}
+/* .heading span:nth-child(2) {
+  width: 5ch;
+} */
+
+.checkSpan {
+  min-width: 1em;
+  padding: 0;
+}
+input:focus {
+  outline: none;
+  background: #171717;
+}
+.players {
+  width: fit-content;
+}
+.player,
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading {
+  font-weight: 500;
+}
+.heading span {
+  color: #777;
+}
+.player,
+.heading {
+  font-size: 1.3em;
+  padding: 0.5em 0;
+}
+
+.player:not(:last-child),
+.heading {
+  border-bottom: 2px solid #777;
+}
+input[type="radio"] {
+  display: none;
+}
+label:has(input[type="radio"]:checked) {
+  text-decoration: underline;
+}
+label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 1em;
+}
+.start {
+  display: block;
+  font-size: 1.5em;
+  border-radius: 0.6em;
+  background: #242424;
+  text-align: center;
+
+  background: #171717;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border: none;
+  user-select: none;
+}
+.start:hover {
+  background: #222;
+}
+.start:active {
+  background: #111;
+}
