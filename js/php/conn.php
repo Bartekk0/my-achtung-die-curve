@@ -2,9 +2,9 @@
 $config = include('/home/secure/achtung/pass.php'); 
 
 $password = $config['db_password'];
-$servername = "localhost";
-$username = "wat3873d_achtung_user";
-$db = "wat3873d_achtung";
+$servername = $config['db_servername'];
+$username = $config['db_username'];
+$db = $config['db_name'];
 
 try {
     global $conn;
