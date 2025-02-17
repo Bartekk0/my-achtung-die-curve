@@ -1,5 +1,9 @@
 import { playersTemplate } from "../data/players.js";
 import ensureVisibleColor from "./scripts/adjustColor.js";
+import {
+  handleCheckbox,
+  savePlayerPreferences,
+} from "./scripts/uiFunctions.js";
 
 const playersContainer = document.getElementById("playersContainer");
 
@@ -21,6 +25,7 @@ playersTemplate.forEach((player, i) => {
   const colorPicker = document.createElement("input");
   colorPicker.type = "color";
   colorPicker.value = player.color ?? "#ffffff";
+  colorPicker.id = `color-${i}`;
   colorPicker.onblur = () => {
     console.log(ensureVisibleColor(colorPicker.value));
 
@@ -36,23 +41,25 @@ playersTemplate.forEach((player, i) => {
   inputName.spellcheck = false;
   inputName.maxLength = 15;
   inputName.style.color = player.color ?? "#ffffff";
+  inputName.id = `name-${i}`;
   playerDiv.appendChild(inputName);
 
   const inputCheckbox = document.createElement("input");
   inputCheckbox.type = "checkbox";
   inputCheckbox.name = "playersCheckBox";
-  inputCheckbox.id = `checkID${i}`;
+  inputCheckbox.id = `check-${i}`;
   //   inputCheckbox.oninput = () => checked(i);
   inputCheckbox.style.color = player.color ?? "#ffffff";
+  inputCheckbox.addEventListener("change", () => handleCheckbox(i));
   playerDiv.appendChild(inputCheckbox);
 
   const leftKeySpan = document.createElement("span");
-  leftKeySpan.id = `leftKeyID${i}`;
+  leftKeySpan.id = `leftKey-${i}`;
   leftKeySpan.style.color = player.color ?? "#ffffff";
   playerDiv.appendChild(leftKeySpan);
 
   const rightKeySpan = document.createElement("span");
-  rightKeySpan.id = `rightKeyID${i}`;
+  rightKeySpan.id = `rightKey-${i}`;
   rightKeySpan.style.color = player.color ?? "#ffffff";
   playerDiv.appendChild(rightKeySpan);
 
